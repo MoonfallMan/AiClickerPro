@@ -5,6 +5,7 @@ import {
   Store as ShopIcon,
   Timeline as StatsIcon,
   Psychology as ResearchIcon,
+  Memory as GpuIcon,
 } from '@mui/icons-material';
 import GameLayout from './components/GameLayout';
 import ModelTraining from './components/ModelTraining';
@@ -14,7 +15,10 @@ import Research from './components/Research';
 import TabPanel from './components/TabPanel';
 import Boosts from './components/Boosts';
 import useGameTicker from './hooks/useGameTicker';
+import usePersistence from './hooks/usePersistence';
 import { useDispatch } from 'react-redux';
+import { checkBoosts } from './features/gameSlice';
+import GpuFarm from './components/GpuFarm';
 
 const theme = createTheme({
   palette: {
@@ -36,6 +40,7 @@ const theme = createTheme({
 
 function App() {
   useGameTicker();
+  usePersistence(); // Add this line to enable persistence
   const [tabValue, setTabValue] = useState(0);
   const dispatch = useDispatch();
 

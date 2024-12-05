@@ -16,6 +16,7 @@ import {
   Psychology as BrainIcon,
   Speed as SpeedIcon,
 } from '@mui/icons-material';
+import SaveManager from './SaveManager';
 
 const StatCard = ({ icon, title, value, color = 'primary' }) => {
   const Icon = icon;
@@ -87,7 +88,7 @@ export default function StatsPage() {
   const completedAchievements = achievementsList.filter(a => a.achieved).length;
 
   return (
-    <Box>
+    <div>
       <Typography variant="h5" gutterBottom>
         Statistics & Achievements
       </Typography>
@@ -137,6 +138,7 @@ export default function StatsPage() {
           </Grid>
         ))}
       </Grid>
-    </Box>
+      <SaveManager />
+    </div>
   );
 }
